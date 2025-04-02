@@ -1,28 +1,28 @@
-// script.js
 // Función para mostrar/ocultar el contenido desplegable
 function toggleDropdown() {
-    const content = document.getElementById("dropdown-content");
+    const content = document.getElementById("navbar");
     content.style.display = content.style.display === "block" ? "none" : "block";
 }
 
 // Cierra el menú si se hace clic fuera de él
 window.onclick = function(event) {
-    const dropdown = document.querySelector('.dropdown');
-    const content = document.getElementById("dropdown-content");
+    const dropdown = document.querySelector('.header');
+    const content = document.getElementById("navbar");
     if (!dropdown.contains(event.target)) {
         content.style.display = "none";
     }
 }
-document.addEventListener("DOMContentLoaded", () => {
-    const toggleMenu = document.getElementById("toggleMenu");
-    const semanaMenu = document.getElementById("semanaMenu");
 
-    toggleMenu.addEventListener("click", () => {
-        // Alternar la visibilidad del menú de semanas
-        if (semanaMenu.style.display === "none") {
-            semanaMenu.style.display = "block";
+document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menu-icon");
+    const navbar = document.getElementById("navbar");
+
+    // Al hacer clic en el icono del menú, mostrar u ocultar el navbar
+    menuIcon.addEventListener("click", () => {
+        if (navbar.style.display === "none" || navbar.style.display === "") {
+            navbar.style.display = "block";
         } else {
-            semanaMenu.style.display = "none";
+            navbar.style.display = "none";
         }
     });
 });
