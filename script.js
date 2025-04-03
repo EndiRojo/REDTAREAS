@@ -1,28 +1,25 @@
 // Función para mostrar/ocultar el contenido desplegable
 function toggleDropdown() {
-    const content = document.getElementById("navbar");
-    content.style.display = content.style.display === "block" ? "none" : "block";
+    const dropdownContent = document.getElementById("dropdown-content");
+    dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
 }
 
 // Cierra el menú si se hace clic fuera de él
 window.onclick = function(event) {
-    const dropdown = document.querySelector('.header');
-    const content = document.getElementById("navbar");
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownContent = document.getElementById("dropdown-content");
+
     if (!dropdown.contains(event.target)) {
-        content.style.display = "none";
+        dropdownContent.style.display = "none";
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const menuIcon = document.getElementById("menu-icon");
-    const navbar = document.getElementById("navbar");
+    const navbar = document.querySelector(".navbar");
 
     // Al hacer clic en el icono del menú, mostrar u ocultar el navbar
     menuIcon.addEventListener("click", () => {
-        if (navbar.style.display === "none" || navbar.style.display === "") {
-            navbar.style.display = "block";
-        } else {
-            navbar.style.display = "none";
-        }
+        navbar.style.display = (navbar.style.display === "block") ? "none" : "block";
     });
 });
